@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOME TO THEWORLD OF AUGMENTED REALITY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="jquery.flipster.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho&family=Cutive+Mono&family=Hurricane&family=Josefin+Sans:ital,wght@1,100&family=Kdam+Thmor+Pro&family=Merriweather:wght@300&family=Neucha&family=Odibee+Sans&family=Satisfy&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="jquery.flipster.min.js"></script>
+</head>
+
+<body>
+
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="img/DQF Logo Full.png"></a>
+        </nav>
+    </section>
+
+    <section class="showcase">
+        <div class="carousel">
+            <ul>
+                <li><img src="img/showcase1.png"></li>
+                <li><img src="img/showcase2.png"></li>
+                <li><img src="img/showcase3.png"></li>
+                <li><img src="img/showcase4.png"></li>
+                <li><img src="img/showcase5.png"></li>
+                <li><img src="img/showcase6.png"></li>
+                <li><img src="img/showcase7.png"></li>
+                <li><img src="img/showcase8.png"></li>
+                <!-- <li><video src="video/Wormhole.mp4" autoplay loop muted controls></li> --> 
+            </ul>
+        </div>
+    </section>
+
+    <section class="button">
+        <a href="arshowcase.html"><button class="enter">ENTER HERE</button></a>
+      </section>
+  
+      <section class="footer">
+          <h1>Please ensure that your<br>device has a camera.</h1>
+      </section>
+ 
+
+    <script>
+        $('.carousel').flipster({
+            style: 'carousel',
+            spacing: -0.3,
+        });
+    </script>
+
+    <script>
+        var menulist = document.getElementById("menulist");
+
+        menulist.style.maxHeight = "0px";
+
+        function togglemenu() {
+
+            if (menulist.style.maxHeight == "0px") {
+                menulist.style.maxHeight = "130px";
+            }
+            else {
+                menulist.style.maxHeight = "0px";
+            }
+        }
+    </script>
+
+
+</body>
+</html>
