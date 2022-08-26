@@ -1,77 +1,170 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WELCOME TO THEWORLD OF AUGMENTED REALITY</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="jquery.flipster.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho&family=Cutive+Mono&family=Hurricane&family=Josefin+Sans:ital,wght@1,100&family=Kdam+Thmor+Pro&family=Merriweather:wght@300&family=Neucha&family=Odibee+Sans&family=Satisfy&family=Ubuntu:wght@300&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="jquery.flipster.min.js"></script>
-</head>
+<html>
+<script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
+<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+<script src="script.js"></script>
+<style>
+body {
+margin: 0;
+}
 
+.example-container {
+overflow: hidden;
+position: absolute;
+width: 100%;
+height: 100%;
+}
+
+#example-scanning-overlay {
+display: flex;
+align-items: center;
+justify-content: center;
+position: absolute;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+background: transparent;
+z-index: 2;
+}
+
+@media (min-aspect-ratio: 1/1) {
+#example-scanning-overlay .inner {
+width: 50vh;
+height: 50vh;
+}
+}
+
+@media (max-aspect-ratio: 1/1) {
+#example-scanning-overlay .inner {
+width: 80vw;
+height: 80vw;
+}
+}
+
+#example-scanning-overlay .inner {
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+
+background:
+linear-gradient(to right, white 10px, transparent 10px) 0 0,
+linear-gradient(to right, white 10px, transparent 10px) 0 100%,
+linear-gradient(to left, white 10px, transparent 10px) 100% 0,
+linear-gradient(to left, white 10px, transparent 10px) 100% 100%,
+linear-gradient(to bottom, white 10px, transparent 10px) 0 0,
+linear-gradient(to bottom, white 10px, transparent 10px) 100% 0,
+linear-gradient(to top, white 10px, transparent 10px) 0 100%,
+linear-gradient(to top, white 10px, transparent 10px) 100% 100%;
+background-repeat: no-repeat;
+background-size: 40px 40px;
+}
+
+#example-scanning-overlay.hidden {
+display: none;
+}
+
+#example-scanning-overlay img {
+opacity: 0.6;
+width: 90%;
+align-self: center;
+}
+
+#example-scanning-overlay .inner .scanline {
+position: absolute;
+width: 100%;
+height: 10px;
+background: white;
+animation: move 2s linear infinite;
+}
+
+@keyframes move {
+
+0%,
+100% {
+top: 0%
+}
+
+50% {
+top: calc(100% - 10px)
+}
+}
+</style>
 <body>
+<div class="example-container">
+<div id="example-scanning-overlay" class="hidden">
+<div class="inner">
+<img src="dqfind.png">
+<div class="scanline"></div> 
+</div>
+</div>
+<a-scene mindar-image="imageTargetSrc: ./targets.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded="" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" inspector="" keyboard-shortcuts="" screenshot="">
+<a-assets>
+<img id="card" src="./upload1.png" />
+<img id="icon-left" src="./arrowLeft.png">
+<img id="icon-right" src="./arrowRight.png">
+<a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
+<img id="paintandquest-preview" src="./upload1.png">
+<img id="peak-preview" src="./upload2.png"> 
+<img id="coffeemachine-preview" src="./upload3.png">
+<img id="poweredby" src="./powered by nvqenn 70-01.png">
+</a-assets>
 
-    <section class="header">
-        <nav>
-            <a href="index.html"><img src="img/DQF Logo Full.png"></a>
-        </nav>
-    </section>
+<a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable" camera="" rotation="" wasd-controls=""></a-camera>
 
-    <section class="showcase">
-        <div class="carousel">
-            <ul>
-                <li><img src="img/showcase1.png"></li>
-                <li><img src="img/showcase2.png"></li>
-                <li><img src="img/showcase3.png"></li>
-                <li><img src="img/showcase4.png"></li>
-                <li><img src="img/showcase5.png"></li>
-                <li><img src="img/showcase6.png"></li>
-                <li><img src="img/showcase7.png"></li>
-                <li><img src="img/showcase8.png"></li>
-                <!-- <li><video src="video/Wormhole.mp4" autoplay loop muted controls></li> --> 
-            </ul>
-        </div>
-    </section>
+<a-entity id="mytarget" mytarget="" mindar-image-target="targetIndex: 0">
+<!--<a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>-->
 
-    <section class="button">
-        <a href="arshowcase.html"><button class="enter">ENTER HERE</button></a>
-      </section>
-  
-      <section class="footer">
-          <h1>Please ensure that your<br>device has a camera.</h1>
-      </section>
- 
+<a-entity visible="true" id="portfolio-panel" position="0 0 -0.01">
+  <a-entity id="portfolio-item0">
+    <a-image id="paintandquest-preview-button" class="clickable" src="#paintandquest-preview" alpha-test="0.5"
+    position="0 0 0" height="0.75" width="1" material="" geometry=""></a-image>
+  </a-entity>
+  <a-entity id="portfolio-item1" visible="false">
+    <a-image class="clickable" src="#coffeemachine-preview" alpha-test="0.5" position="0 0 0" height="0.75"
+    width="1" material="" geometry="">
+    </a-image>
+  </a-entity>
+  <a-entity id="portfolio-item2" visible="false">
+  <!--<a-text class="clickable" value="
+DQFind Industries 
+011 1213 5350 
+dragonqennfind@gmail.com" font="https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/cabin/Cabin-Medium.json" color="black" 
+      shader="msdf" align="center" width="1.75" position="0 0.65 0"
+      geometry="primitive:plane; height: 0.45; width: 1.25;" material="opacity: 0.5" text=""></a-text>-->
+    <a-image class="clickable" src="#peak-preview" alpha-test="0.5" position="0 0 0" height="0.75" width="1"
+    material="" geometry="">
+    </a-image>
+    <!--<a-text id="text" class="clickable" value="
+Augmented Reality 
+Gamification 
+Fabrication" font="https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/cabin/Cabin-Medium.json" color="black" shader="msdf" align="center" width="2" position="0 -0.75 -0.25"
+      geometry="primitive:plane; height: 0.4; width: 1.5;" material="opacity: 0.5" text=""></a-text>-->
+  </a-entity>
+</a-entity>
 
-    <script>
-        $('.carousel').flipster({
-            style: 'carousel',
-            spacing: -0.3,
-        });
-    </script>
+<a-image visible="false" id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.7 0 0"
+height="0.2" width="0.2" material="" geometry=""></a-image>
+<a-image visible="false" id="portfolio-right-button" class="clickable" src="#icon-right" position="0.7 0 0"
+height="0.2" width="0.2" material="" geometry=""></a-image>
 
-    <script>
-        var menulist = document.getElementById("menulist");
-
-        menulist.style.maxHeight = "0px";
-
-        function togglemenu() {
-
-            if (menulist.style.maxHeight == "0px") {
-                menulist.style.maxHeight = "130px";
-            }
-            else {
-                menulist.style.maxHeight = "0px";
-            }
-        }
-    </script>
-
-
+<a-image visible="true" id="web-button" class="clickable" src="#poweredby" alpha-test="0.5" position="0 -0.75 0" height="0.3" width="0.75"
+      material="" geometry="">
+      </a-image>
+</a-entity>
+<canvas class="a-canvas a-mouse-cursor-hover" data-aframe-canvas="true" width="1304" height="697"></canvas>
+</a-scene>
+</div>
+<div class="mindar-ui-overlay mindar-ui-compatibility hidden">
+<div class="content">
+<h1>Failed to launch :(</h1>
+<p> Looks like your device/browser is not compatible. </p> <br> <br>
+<p> Please try the following recommended browsers: </p>
+<p> For Android device - Chrome </p>
+<p> For iOS device - Safari </p>
+</div>
+</div>
 </body>
 </html>
