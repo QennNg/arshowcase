@@ -131,17 +131,28 @@
         <img id="icon-right" src="./images/zRightArrow.png" />
 
         <img id="paintandquest-preview" src="./images/picThumbnail.png" />
-        <video id="paintandquest-video-mp4" autoplay="false" loop="true" src="./advanced_files/AR Video 1.mp4"
+
+        <video id="paintandquest-video-mp4" controls>
+          <source src="./advanced_files/AR Video 1.mp4" type="video/mp4" />
+          Your browser does not support the video
+        </video>
+        <video id="paintandquest-video-webm" controls>
+          <source src="./advanced_files/ARWeb.webm" type="video/mp4" />
+          Your browser does not support the video
+        </video>
+
+        <!-- <video id="paintandquest-video-mp4" autoplay="false" loop="true" src="./advanced_files/AR Video 1.mp4"
           playsinline="" webkit-playsinline=""></video>
         <video id="paintandquest-video-webm" autoplay="false" loop="true" src="./advanced_files/ARWeb.webm"
-          playsinline="" webkit-playsinline=""></video>
-        <img id="image2" src="./images/1.png" />
-        <img id="image3" src="./images/2.png" />
-        <img id="image4" src="./images/3.png" />
-        <img id="image5" src="./images/4.png" />
-        <img id="image6" src="./images/5.png" />
-        <img id="image7" src="./images/6.png" />
-        <img id="image8" src="./images/7.png" />
+          playsinline="" webkit-playsinline=""></video> -->
+
+        <img id="image7" src="./images/1.png" />
+        <img id="image6" src="./images/2.png" />
+        <img id="image5" src="./images/3.png" />
+        <img id="image4" src="./images/4.png" />
+        <img id="image3" src="./images/5.png" />
+        <img id="image2" src="./images/6.png" />
+        <img id="image1" src="./images/7.png" />
 
         <img id="poweredby" src="./images/poweredbynvqenn.png" />
 
@@ -167,14 +178,38 @@
           </a-entity>
 
           <a-entity id="portfolio-item1" visible="false">
-            <a-image class="clickable" src="#image2" alpha-test="0.5" position="0 0 0" height="0.69" width="1.25" 
+            <a-image class="clickable" src="#image1" alpha-test="0.5" position="0 0 0" height="0.69" width="1.25" 
             material="" geometry=""></a-image>
           </a-entity>
 
           <a-entity id="portfolio-item2" visible="false">
+            <a-image class="clickable" src="#image2" alpha-test="0.5" position="0 0 0" height="0.69" width="1.25"
+              material="" geometry=""></a-image>
+          </a-entity>
+
+          <a-entity id="portfolio-item3" visible="false">
             <a-image class="clickable" src="#image3" alpha-test="0.5" position="0 0 0" height="0.69" width="1.25"
-              material="" geometry="">
-            </a-image>
+              material="" geometry=""></a-image>
+          </a-entity>
+
+          <a-entity id="portfolio-item4" visible="false">
+            <a-image class="clickable" src="#image4" alpha-test="0.5" position="0 0 0" height="0.69" width="1.25"
+              material="" geometry=""></a-image>
+          </a-entity>
+
+          <a-entity id="portfolio-item5" visible="false">
+            <a-image class="clickable" src="#image5" alpha-test="0.5" position="0 0 0" height="0.69" width="1.25"
+              material="" geometry=""></a-image>
+          </a-entity>
+
+          <a-entity id="portfolio-item6" visible="false">
+            <a-image class="clickable" src="#image6" alpha-test="0.5" position="0 0 0" height="0.69" width="1.25"
+              material="" geometry=""></a-image>
+          </a-entity>
+
+          <a-entity id="portfolio-item7" visible="false">
+            <a-image class="clickable" src="#image7" alpha-test="0.5" position="0 0 0" height="0.69" width="1.25"
+              material="" geometry=""></a-image>
           </a-entity>
 
           <a-image visible="false" id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.35 -0.625 0"
