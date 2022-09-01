@@ -1,2 +1,0 @@
-# arshowcase
-Ar Showcase Repository
